@@ -6,11 +6,18 @@
   let adviceId;
   let timer = 0;
   let timerFun;
+  let mainTimer
 
   function handleReload() {
     if (timerFun) {
       clearInterval(timerFun);
     }
+
+    // if (mainTimer) {
+    //   clearInterval(mainTimer);
+    // }
+
+
     // try {
     //   const res = await fetch("https://api.adviceslip.com/advice");
     //   const data = await res.json();
@@ -42,9 +49,15 @@
     timerFun = setInterval(() => {
       timer--;
     }, 1000);
+
+
+
+  mainTimer = setInterval(handleReload, 10000);
+
+
+    console.log('has started')
   }
 
-  setInterval(handleReload, 10000);
 
   handleReload();
 </script>
