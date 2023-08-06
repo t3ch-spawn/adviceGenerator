@@ -58,7 +58,7 @@
   handleReload();
 </script>
 
-<main class="bg-mainBg font-main">
+<main class="bg-mainBg font-main relative">
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <Card>
     <p class="absolute left-4 top-4 text-sm text-fontCol">
@@ -88,6 +88,8 @@
       <img class=" w-[50%] pointer-events-none" src={dice} alt="" />
     </div>
   </Card>
+
+  <p class="absolute bottom-10 text-fontCol">Built with ❤ by <a class="underline" href="https://twitter.com/t3ch_spawn">Boluwatife</a> </p>
 </main>
 
 <style>
