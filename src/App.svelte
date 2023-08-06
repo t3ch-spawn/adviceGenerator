@@ -6,15 +6,10 @@
   let adviceId;
   let timer;
   let timerFun;
-  let mainTimer;
 
   function handleReload() {
     if (timerFun) {
       clearInterval(timerFun);
-    }
-
-    if (mainTimer) {
-      clearInterval(mainTimer);
     }
 
     // fetch("https://v2.jokeapi.dev/joke/Any")
@@ -40,28 +35,24 @@
         return res.json();
       })
       .then((data) => {
-        advice =  data.slip.advice
-      adviceId =  data.slip.id
+        advice = data.slip.advice;
+        adviceId = data.slip.id;
 
-      timerFun = setInterval(() => {
-      if(timer == 0){
-        handleReload()
-        timer = 11
-      }
-      if (advice !== '...' && advice !== undefined) timer--;
+        timerFun = setInterval(() => {
+          if (timer == 0) {
+            handleReload();
+            timer = 11;
+          }
+          if (advice !== "..." && advice !== undefined) timer--;
+        }, 1000);
 
-    }, 1000);
-
-    // mainTimer = setInterval(handleReload, 10000);
+        // mainTimer = setInterval(handleReload, 10000);
       })
       .catch((error) => {
         console.log(error);
         advice = "...";
-        adviceId = '...'
+        adviceId = "...";
       });
-
-
-
   }
 
   handleReload();
