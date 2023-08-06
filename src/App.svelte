@@ -17,6 +17,9 @@
       clearInterval(mainTimer);
     }
 
+    // fetch("https://v2.jokeapi.dev/joke/Any")
+    // adviceId = data.setup
+    //    advice = data.delivery
     // try {
     //   const res = await fetch("https://api.adviceslip.com/advice");
     //   const data = await res.json();
@@ -37,8 +40,8 @@
         return res.json();
       })
       .then((data) => {
-        advice = data.slip.advice;
-        adviceId = data.slip.id;
+        advice =  data.slip.advice
+      adviceId =  data.slip.id
       })
       .catch((error) => {
         console.log(error);
