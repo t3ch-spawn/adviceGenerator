@@ -13,9 +13,9 @@
       clearInterval(timerFun);
     }
 
-    // if (mainTimer) {
-    //   clearInterval(mainTimer);
-    // }
+    if (mainTimer) {
+      clearInterval(mainTimer);
+    }
 
 
     // try {
