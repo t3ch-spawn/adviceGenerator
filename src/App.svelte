@@ -69,7 +69,7 @@
     </h1>
 
     <p class="text-fontCol font-extrabold text-2xl text-center">
-      ❝{advice ? advice : "..."}❞
+      ❝ {advice ? advice : "..."} ❞
     </p>
 
     <div class="flex w-[100%] justify-center items-center gap-[8px]">
