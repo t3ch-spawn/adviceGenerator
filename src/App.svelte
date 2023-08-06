@@ -6,7 +6,7 @@
   let adviceId;
   let timer = 0;
   let timerFun;
-  let mainTimer
+  let mainTimer;
 
   function handleReload() {
     if (timerFun) {
@@ -16,7 +16,6 @@
     if (mainTimer) {
       clearInterval(mainTimer);
     }
-
 
     // try {
     //   const res = await fetch("https://api.adviceslip.com/advice");
@@ -43,21 +42,17 @@
       })
       .catch((error) => {
         console.log(error);
-        advice = "...Please check your internet connection";
+        advice = "...";
       });
 
     timerFun = setInterval(() => {
-      timer--;
+      if (advice !== '...' && advice !== undefined) timer--;
     }, 1000);
 
+    mainTimer = setInterval(handleReload, 10000);
 
-
-  mainTimer = setInterval(handleReload, 10000);
-
-
-    console.log('has started')
+    console.log("has started");
   }
-
 
   handleReload();
 </script>
@@ -74,7 +69,7 @@
     </h1>
 
     <p class="text-fontCol font-extrabold text-2xl text-center">
-      "{advice ? advice : "..."}"
+      ❝{advice ? advice : "..."}❞
     </p>
 
     <div class="flex w-[100%] justify-center items-center gap-[8px]">
@@ -96,7 +91,7 @@
 
 <style>
   .dice:hover {
-    box-shadow: 1px 1px 10px 3px  hsl(150, 100%, 66%) ;
+    box-shadow: 1px 1px 10px 3px hsl(150, 100%, 66%);
   }
 
   main {
