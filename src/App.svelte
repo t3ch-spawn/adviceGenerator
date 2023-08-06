@@ -4,7 +4,7 @@
 
   let advice;
   let adviceId;
-  let timer = 0;
+  let timer;
   let timerFun;
   let mainTimer;
 
@@ -42,19 +42,26 @@
       .then((data) => {
         advice =  data.slip.advice
       adviceId =  data.slip.id
+
+      timerFun = setInterval(() => {
+      if(timer == 0){
+        handleReload()
+        timer = 11
+      }
+      if (advice !== '...' && advice !== undefined) timer--;
+
+    }, 1000);
+
+    // mainTimer = setInterval(handleReload, 10000);
       })
       .catch((error) => {
         console.log(error);
         advice = "...";
+        adviceId = '...'
       });
 
-    timerFun = setInterval(() => {
-      if (advice !== '...' && advice !== undefined) timer--;
-    }, 1000);
 
-    mainTimer = setInterval(handleReload, 10000);
 
-    console.log("has started");
   }
 
   handleReload();
